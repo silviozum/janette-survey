@@ -33,7 +33,12 @@ const mutations = {
   },
   deleteQuestion (state, index){
     console.log(index)
-    delete state.questions[index]
+    state.questions.splice(index,1)
+  },
+  moveRight (state, index){
+    let beforeIndex = index - 1
+    state.questions[index] = state.questions[beforeIndex]
+    state.questions[beforeIndex] = state.questions[index]
   }
 }
 
